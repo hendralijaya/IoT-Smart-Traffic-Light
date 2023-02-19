@@ -26,6 +26,8 @@ def run():
         im = cv2.imdecode(imgnp, -1)
 
         counts = count_objects(im)
+        # sent to esp32cam
+        print(counts['car'], counts['motorcycle'])
         text = f"cars: {counts['car']}, motorcycles: {counts['motorcycle']}"
         im = cv2.putText(im, text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
